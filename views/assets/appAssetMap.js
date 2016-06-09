@@ -5,15 +5,11 @@ module.exports = {
 		"index": ["index"],
 		"login": [],
 		"home": ["home"],
-		"admin": ["admin"],
-		"customize": ["customize"],
-		"visits": ["clients","visits"],
-		"profile": ["profile"],
+		"admin": ["admin","dir-web"],
+		"profile": ["profile","dir-web"],
 
 		"m-general" : ["app-css"],
 		"m-angular" : ["utils","filters-mobile","dir-mobile"],
-		"m-home": ["m-common","m-main","dir-mobile","m-execBios","m-clientInfo"],
-		"m-facts": ["m-common","dir-mobile","m-facts"],
-    "m-visits": ["m-common","m-visits","m-sessions","m-contacts","dir-mobile"]
+		"m-home": ["m-common","m-main","dir-mobile"]
 	}
 }

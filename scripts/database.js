@@ -2,7 +2,7 @@ var mongoose      = require('mongoose');
 var constants     = require('./constants');
 var config        = require(constants.paths.config + '/config');
 var userSchema =  require(constants.paths.models + '/user');
-var keynote =  require(constants.paths.models + '/keynote');
+// var keynote =  require(constants.paths.models + '/keynote');
 
 var databaseURI   = config.get("db.main");
 

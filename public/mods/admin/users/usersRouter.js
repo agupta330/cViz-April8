@@ -17,6 +17,11 @@ angular.module('users')
       .when('/users/panels', {
         templateUrl: '/public/mods/admin/users/usersViewPanels.html',
         controller: 'usersControllerMain'
+      })
+
+      .when('/directives/', {
+        templateUrl: '/public/mods/admin/users/directiveShow.html',
+        controller: 'usersControllerMain'
       });
 
     }

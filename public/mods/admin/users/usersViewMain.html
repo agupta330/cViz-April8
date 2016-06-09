@@ -24,6 +24,9 @@
       <!-- table header -->
       <tr>
         <th>
+          <a href="" ng-click="orderByField='name'; reverseSort = !reverseSort">Name</a>
+        </th>
+        <th>
           <a href="" ng-click="orderByField='handle'; reverseSort = !reverseSort">Email</a>
         </th>
         <th>
@@ -65,23 +68,24 @@
         </td>
       </tr>
     </thead>
-
+    {{mode="nameonly";""}}
     <tbody class="data-grid-data">
       <tr ng-repeat="user in userlist | filter: search |orderBy:orderByField:reverseSort">
+        <td><div userdisplay view-mode="mode" user-id="user._id"></div></td>
         <td>{{user.email}}</td>
         <td>{{user.name.first}}</td>
         <td>{{user.name.last}}</td>
         <td class="hidden-xs">{{user.organization}}</td>
         <td class="hidden-xs">{{user.status}}</td>   
-        <td>
-          <a class="table-btn" ng-click="edit(user._id)"><span class="fa fa-pencil-square-o fa-lg" /></a>
-          <a class="table-btn" ng-click="remove(user)" confirm-dialog header-text="Delete User" content="Are you sure you want to delete the user with name <b>{{user.name.first}} {{user.name.last}} ?</b>" 
-          yes-text="Ok" no-text="Cancel"><span class="fa fa-trash-o fa-lg" /></a>
-          <a class="table-btn" ng-if="user.status == 'Active'" ng-click="lock(user._id,user)" confirm-dialog header-text="Lock User" content="Are you sure you want to lock the user with name <b>{{user.name.first}} {{user.name.last}} ?</b>" 
-          yes-text="Ok" no-text="Cancel"><span class="fa fa-lock fa-lg" /></a>
-          <a class="table-btn" ng-if="user.status == 'Locked'" ng-click="unlock(user._id,user)" confirm-dialog header-text="Unlock User" content="Are you sure you want to unlock the user with name <b>{{user.name.first}} {{user.name.last}} ?</b>" 
-          yes-text="Ok" no-text="Cancel"><span class="fa fa-unlock fa-lg" /></a>
-          <a ng-click="getUserDetails(user._id,$event)" class="table-btn"><span class="fa fa-users fa-lg" /></a>
+         <td>
+          <a class="table-btn" ng-click="edit(user._id)" tooltips tooltip-template="Edit User"><span class="fa fa-pencil-square-o fa-lg" /></a>
+          <a class="table-btn" ng-click="remove(user)" confirm-dialog header-text="Delete User" content="Are you sure you want to delete the user with name <b>{{user.name.first}} {{user.name.last}} ?</b>"
+          yes-text="Ok" no-text="Cancel"><span class="fa fa-trash-o fa-lg" tooltips tooltip-template="Delete User"/></a>
+          <a class="table-btn" ng-if="user.status == 'Active'" ng-click="lock(user._id,user)" confirm-dialog header-text="Lock User" content="Are you sure you want to lock the user with name <b>{{user.name.first}} {{user.name.last}} ?</b>"
+          yes-text="Ok" no-text="Cancel"><span class="fa fa-lock fa-lg" tooltips tooltip-template="Lock User"/></a>
+          <a class="table-btn" ng-if="user.status == 'Locked'" ng-click="unlock(user._id,user)" confirm-dialog header-text="Unlock User" content="Are you sure you want to unlock the user with name <b>{{user.name.first}} {{user.name.last}} ?</b>"
+          yes-text="Ok" no-text="Cancel"><span class="fa fa-unlock fa-lg" tooltips tooltip-template="Unlock User"/></a>
+          <a ng-click="getUserDetails(user._id,$event)" class="table-btn" tooltips tooltip-template="Add User to Group"><span class="fa fa-users fa-lg" /></a>
         </td>
       </tr>
     </tbody>

@@ -3,9 +3,9 @@ var _ = require('underscore');
 var bcrypt = require('bcryptjs');
 var path              = require('path');
 
-var constants 				= require('../scripts/constants');
+var constants               = require('../scripts/constants');
 
-var model 				    = require(constants.paths.models +  '/user')
+var model                   = require(constants.paths.models +  '/user')
 var config            = require(path.join(constants.paths.config, '/config'));
 
 // Service method definition -- Begin
@@ -17,8 +17,9 @@ service.create = create;
 service.getOneById = getOneById;
 service.updateById = updateById;
 service.deleteById = deleteById;
-
+service.getAllUsers = getAllUsers;
 service.getByEmail = getByEmail;
+service.getWithQuery = getWithQuery;
 
 module.exports = service;
 
@@ -151,3 +152,133 @@ function getByEmail(email){
 
     return deferred.promise;
 } // gentOneById method ends
+
+function getAllUsers(query, fields, maxRecs, sortEx){
+
+    var deferred = Q.defer();
+    var usersArray = [];
+    var userDesig = []
+    model
+    .find(query)
+    .limit(maxRecs)
+    .select(fields)
+    .sort(sortEx)
+    .exec(function(err, list){
+        if(err) {
+            console.log(err);
+            deferred.reject(err);
+        }
+        else
+            for(var i=0;i<list.length;i++)
+            {        
+                // deferred.resolve(list);
+                // if(usersArray.indexOf(list[i].jobTitle) === -1)
+                // {
+                // usersArray.push(transform(list[i]));
+                // }
+
+                if(usersArray.indexOf(list[i].jobTitle) === -1){
+                    usersArray.push(list[i].jobTitle);
+
+                }    
+            }   
+
+            var data = usersArray;
+
+            for (var i = 0; i < data.length; i++) {
+                // console.log(data[i]);
+                userDesig.push({'designation':data[i]});
+            }
+
+            console.log(userDesig.length);
+            deferred.resolve
+            ({
+                "items": userDesig
+            });
+    });
+
+    // function transform(user)
+    // {
+    //     if (user==null) {
+    //         console.log("error in adding");
+    //     }
+    //     else{
+    //         var userData={
+    //             // userid : user._id,
+    //             // firstName :user.name.first,
+    //             // lastName :user.name.last,
+    //             // email : user.email,
+    //             // avatar :user.avatar,
+    //             // association :user.association
+    //             designation:user.jobTitle
+    //         }
+    //         console.log("******************************");
+    //         console.log(userData);
+    //         console.log("******************************");
+    //         return userData;
+    //     }
+    // }
+    return deferred.promise;
+} // getAll method ends
+
+
+function getWithQuery(query, fields, maxRecs, sortEx){
+    var deferred = Q.defer();
+    var usersArray = [];
+    var usersArray1 = [];
+    
+    model
+    .find(query)
+    .limit(maxRecs)
+    .select(fields)
+    .sort(sortEx)
+    .exec(function (err, item) {
+        if(err) {
+            console.log(err);
+            deferred.reject(err);
+        }
+        else
+            for(var i=0;i<item.length;i++)
+            {        
+                // deferred.resolve(list);
+                if(item[i].association=='employee')
+                {
+                usersArray.push(transform(item[i]));
+                }
+
+                if(item[i].association == 'customer' || item[i].association=='employee')
+                {
+                    usersArray1.push(transform(item[i]));
+                }    
+            }   
+
+            deferred.resolve
+            ({
+                "items": usersArray,
+                "items1":usersArray1
+            });
+    });
+
+    function transform(user)
+    {
+        if (user==null) {
+            console.log("error in adding");
+        }
+        else{
+            var userData={
+                userid : user._id,
+                firstName :user.name.first,
+                lastName :user.name.last,
+                email : user.email,
+                avatar :user.avatar,
+                association :user.association,
+                jobTitle : user.jobTitle
+            }
+            // console.log("******************************");
+            // console.log(userData);
+            // console.log("******************************");
+            return userData;
+        }
+    }
+    return deferred.promise;
+} // getWithQuery method ends

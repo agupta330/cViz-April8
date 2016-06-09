@@ -14,18 +14,6 @@ module.exports = {
 		]
 	},
 	
-	"angular-calendar": {
-		"cdn": [
-		],
-		"dev":[
-			"/public/libs/fullcalendar/dist/fullcalendar.css",
-            "/public/libs/fullcalendar/dist/fullcalendar.js",
-            "/public/libs/fullcalendar/dist/gcal.js"
-		],
-		"prod":[
-		]
-	},
-
 	"font-awesome": {
 		"cdn": [
 			"//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
@@ -158,15 +146,6 @@ module.exports = {
 		"dev":[
 			"/public/libs/ngImgCropFullExtended/compile/unminified/ng-img-crop.js",
 			"/public/libs/ngImgCropFullExtended/compile/unminified/ng-img-crop.css"
-		],
-	},
-
-	"angular-dialog":{
-		"cdn":[],
-		"dev":[
-			"/public/assets/styles/ngDialog-theme-default.css",
-			"/public/assets/styles/ngDialog.css",
-			"/public/assets/js/ngDialog.min.js"
 		],
 	},
 

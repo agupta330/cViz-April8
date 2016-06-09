@@ -42,11 +42,11 @@ angular.module('fileuploadDirective', [])
 
   $scope.status = '  ';
 
-  $scope.showUploadButton = function(ev) {
+  $scope.showfileUploadButton = function(ev) {
    // console.log(folderType);
     $mdDialog.show({
-      controller: DialogUploadCtrl,
-      templateUrl: '/public/d/fileUpload/templates/fileDialog.html',
+      controller: DialogUploadCtrlFile,
+      templateUrl: '/public/d/fileUpload/templates/fileUploadDialog.html',
       locals: { folderType: folderType },
       parent: angular.element(document.body),
       targetEvent: ev,
@@ -93,7 +93,7 @@ angular.module('fileuploadDirective', [])
 };
 });
 
-function DialogUploadCtrl($scope, $mdDialog ,folderType) {
+function DialogUploadCtrlFile($scope, $mdDialog ,folderType) {
 
   $scope.folderType =folderType;
   $scope.hide = function() {

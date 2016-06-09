@@ -12,9 +12,8 @@ module.exports = {
 
 			"/public/assets/g/css/sidebar.css",
 			"/public/assets/m/css/font.css",
-			"/public/assets/g/css/rateit.css",
-			"/public/assets/g/css/toaster.css"
-
+			"/public/assets/w/styles/tooltip.css",
+			"/public/assets/w/styles/angucomplete-alt.css"
 		],
 		"prod":[
 			"/public/assets/w/styles/layout.min.css",
@@ -26,8 +25,8 @@ module.exports = {
 
 			"/public/assets/g/css/sidebar.css",
 			"/public/assets/m/css/font.css",
-			"/public/assets/g/css/rateit.css",
-			"/public/assets/g/js/toaster.css"
+			"/public/assets/w/styles/tooltip.css",
+			"/public/assets/w/styles/angucomplete-alt.css"
 		]
 	},
 
@@ -80,11 +79,11 @@ module.exports = {
 			"/public/d/fileAttachment/script.js",
 			"/public/d/datePicker/script.js",
 			"/public/d/confirmDialog/script.js",
-			"/public/d/clientDisplay/script.js",
 			"/public/d/richText/script.js",
-			"/public/d/feedbackDirective/script.js",
-			"/public/assets/g/js/rateit.js",
-			"/public/assets/g/js/toaster.js"
+			"/public/d/tooltipDirective/script.js",
+			"/public/d/autoComplete/script.js",
+			"/public/d/autoComplete/angucomplete-alt.js",
+			"/public/d/autoComplete/angucomplete-alter1.js"
 		],
 		"prod":[
 		]
@@ -93,55 +92,6 @@ module.exports = {
 	"filters-web":{
 		"dev":[
 			"/public/f/date/script.js"
-		],
-		"prod":[
-		]
-	},
-
-	"customize":{
-		"dev":[
-			"/public/mods/keynotes/keynotesModule.js",
-			"/public/mods/keynotes/keynotesControllerMain.js",
-			"/public/mods/keynotes/keynotesRouter.js",
-
-			"/public/mods/facts/factsModule.js",
-			"/public/mods/facts/factsControllerMain.js",
-			"/public/mods/facts/factsRouter.js",
-
-			"/public/mods/feedback/feedbackModule.js",
-			"/public/mods/feedback/feedbackControllerMain.js",
-			"/public/mods/feedback/feedbackRouter.js",
-
-			"/public/mods/contactList/contactListModule.js",
-			"/public/mods/contactList/contactListControllerMain.js",
-			"/public/mods/contactList/contactListRouter.js"
-		],
-		"prod":[
-			"/public/mods/keynotes/keynotesModule.js",
-			"/public/mods/keynotes/keynotesControllerMain.js",
-			"/public/mods/keynotes/keynotesRouter.js"
-		]
-	},
-
-	"clients":{
-		"dev":[
-			"/public/mods/clients/clientsModule.js",
-			"/public/mods/clients/clientsControllerMain.js",
-			"/public/mods/clients/clientsRouter.js"
-		],
-		"prod":[
-		]
-	},
-
-	"visits":{
-		"dev":[
-
-			"/public/mods/visits/visitsModule.js",
-			"/public/mods/visits/visitsControllerMain.js",
-			"/public/mods/visits/sessions/sessionsControllerMain.js",
-			"/public/mods/visits/visitsRouter.js",
-             "/public/assets/js/calendar.js",
-            "/public/mods/visits/calendarCtrl.js"
 		],
 		"prod":[
 		]
@@ -160,12 +110,9 @@ module.exports = {
 	"dir-mobile":{
 		"dev":[
 			"/public/d/userDisplay/script.js",
-			"/public/d/feedbackDirective/script.js",
 			"/public/d/scroll/scroll.js",
 			"/public/d/header/header.js",
-			"/public/d/userView/script.js",
-			"/public/assets/g/js/rateit.js",
-			"/public/assets/g/js/toaster.js"
+			"/public/d/userView/script.js"
 		],
 		"prod":[
 		]
@@ -201,62 +148,8 @@ module.exports = {
 			"/public/assets/m/css/welcome.css"
 		]
 
-	},
+	}
 
-
-	"m-facts":{
-		"dev":[
-			"/public/assets/m/css/fact.css",
-			"/public/assets/m/css/lctnGalry.css",
-
-			"/public/m/facts/facts.js",
-			"/public/m/facts/factsCtrl.js",
-			"/public/m/facts/lctnGalry/lctnGalryCtrl.js"
-		],
-		"prod":[
-
-		]
-	},
-
-	"m-visits":{
-		"dev":[
-			"/public/m/visits/visits.js",
-			"/public/m/visits/visitsCtrl.js",
-			"/public/assets/m/css/myVisitPage.css",
-			"/public/assets/m/css/visitspoc.css"
-		]
-	},
-
-	"m-sessions":{
-		"dev":[
-			"/public/m/sessions/sessions.js",
-			"/public/m/sessions/sessionsCtrl.js",
-			"/public/assets/m/css/sessions.css",
-			"/public/assets/m/css/sessionDetail.css"
-		]
-	},
-
-	"m-clientInfo":{
-		"dev":[
-			"/public/assets/m/css/clientInfo.css",
-		    "/public/m/clientInfo/clientInfo.js"
-		    ]
-		 },
-
-
-	"m-execBios":{
-		"dev":[
-			"/public/assets/m/css/execBios.css",
-		    "/public/m/execBios/execBiosCtrl.js"
-		    ]
-		 },
-
-	"m-contacts":{
-		"dev":[
-			"/public/m/contacts/contacts.js",
-			"/public/m/contacts/contactsCtrl.js"
-			]
-		}
 	}
 
 };
